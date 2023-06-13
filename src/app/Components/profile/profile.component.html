@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<section class="vh-100" style="background-image: url('/assets/images/flightblurbg.webp');">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-8">
+        <div class="card shadow-2-strong rounded-0">
+          <div class="card-body p-5 text-center" style="max-height: 80vh; overflow-y: scroll;">
+            <div *ngIf="profile">
+              <h1>{{ profile.email }}</h1><hr>
+              <h2>Bookings:</h2>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Passenger Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Cabin Class</th>
+                    <th>No. of Tickets</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let booking of profile.bookings">
+                    <td>{{ booking.passengerName }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>{{ booking.phoneNumber }}</td>
+                    <td>{{ booking.age }}</td>
+                    <td>{{ booking.gender }}</td>
+                    <td>{{ booking.cabinClass }}</td>
+                    <td>{{ booking.noOfTicket }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+            <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
